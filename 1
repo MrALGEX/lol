@@ -1,0 +1,62 @@
+/* Julian Guth 23407022 and Paul Johann Friedrich 23417260 */
+
+public class ContactDatabase {
+
+    /* Testing all classes and methods */
+
+    public static void main(String[] args) {
+
+        Contact c1 = new Contact("emil@mail.com");
+        c1.setName("Emiliano Bonucci");
+        c1.setNickname("Emil");
+        c1.setTelephone("231009");
+
+        Contact c2 = new Contact("sarah@mail.com");
+        c2.setName("Sarah Nile Water");
+        c2.setNickname("Sarah");
+        c2.setTelephone("060");
+
+
+        Contact c3 = new Contact("jeffrey@mail.com");
+        c3.setName("Michael Jordan");
+        c3.setNickname("Air Jordan");
+        c3.setTelephone("23");
+
+        Contact c4 = new Contact("coucou@mail.com");
+        c4.setName("Camille Cullen");
+        c4.setNickname("Cou");
+        c4.setTelephone("0141098842");
+
+        Contact replacement = new Contact("juicewrld@mail.com");
+        replacement.setName("Jarad Anthony Higgins");
+        replacement.setNickname("Higgins");
+        replacement.setTelephone("999");
+
+        AuDClosedHashTable testClosed = new AuDClosedHashTable(4);
+
+        testClosed.insert(c1);
+        System.out.println(testClosed.getContact("emil@mail.com"));
+        testClosed.insert(c2);
+        System.out.println(testClosed.getContact("sarah@mail.com"));
+        testClosed.insert(c3);
+        System.out.println(testClosed.getContact("jeffrey@mail.com"));
+        testClosed.insert(c4);
+        System.out.println(testClosed.getContact("coucou@mail.com"));
+        testClosed.remove(c1);
+        testClosed.insert(replacement);
+        System.out.println(testClosed.getContact("juicewrld@mail.com"));
+
+        AuDOpenHashTable testOpen = new AuDOpenHashTable(15);
+        testOpen.insert(c1);
+        testOpen.insert(c2);
+        testOpen.insert(c3);
+        testOpen.insert(c4);
+        testOpen.insert(replacement);
+        System.out.println(testOpen.getContact("emil@mail.com"));
+        System.out.println(testOpen.getContact("sarah@mail.com"));
+        System.out.println(testOpen.getContact("jeffrey@mail.com"));
+        System.out.println(testOpen.getContact("juicewrld@mail.com"));
+        testOpen.remove(replacement);
+    }
+
+}
